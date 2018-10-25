@@ -22,7 +22,7 @@ const makeCounterFromZero = function(){
 
 const makeDeltaTracker = function(old){
   return function(delta){
-    if(delta == undefined){
+    if(!delta){
       delta = 0;
     }
     let object = {old:old,delta:delta,new:old+delta};
@@ -32,11 +32,11 @@ const makeDeltaTracker = function(old){
 }
 
 const makeFiboGenerator = function(firstTerm,secondTerm){
-  if(firstTerm == undefined && secondTerm == undefined){
+  if(!firstTerm && !secondTerm){
     firstTerm = 0;
     secondTerm = 1;
   }
-  if(secondTerm == undefined){
+  if(!secondTerm){
     secondTerm = firstTerm;
     firstTerm = 0;
   }
