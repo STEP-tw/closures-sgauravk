@@ -20,7 +20,19 @@ const makeCounterFromZero = function(){
   }
 }
 
-const makeDeltaTracker = undefined;
+const makeDeltaTracker = function(old){
+  return function(delta){
+    if(delta == undefined){
+      delta = 0;
+    }
+    let object = {old:old,delta:delta,new:old+delta};
+    old=old+delta;
+    return object;
+  }
+}
+
+
+
 const makeFiboGenerator = undefined;
 
 const makeCycler = function(array){
@@ -41,7 +53,15 @@ const curry = function(operation,argv1){
   }
 }
 
-const compose = undefined;
+const compose = undefined
+//  return function(number1,number2){
+//    number1 = operation1(number1);
+//    number2 = operation1(number2);
+//    numbers = operation2(number1,number2);
+//    return numbers;
+//  }
+//}
+
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;
