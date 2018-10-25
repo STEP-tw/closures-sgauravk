@@ -31,9 +31,23 @@ const makeDeltaTracker = function(old){
   }
 }
 
-
-
-const makeFiboGenerator = undefined;
+const makeFiboGenerator = function(firstTerm,secondTerm){
+  if(firstTerm == undefined && secondTerm == undefined){
+    firstTerm = 0;
+    secondTerm = 1;
+  }
+  if(secondTerm == undefined){
+    secondTerm = firstTerm;
+    firstTerm = 0;
+  }
+  return function(){
+    let result = firstTerm;
+    let sum = firstTerm+secondTerm;
+    firstTerm = secondTerm;
+    secondTerm = sum;
+    return result;
+  }
+}
 
 const makeCycler = function(array){
   let newArray = array.slice(0);
