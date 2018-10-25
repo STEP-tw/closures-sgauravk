@@ -35,8 +35,12 @@ const makeCycler = function(array){
   }
 }
 
+const curry = function(operation,argv1){
+  return function(argv2,argv3){
+    return operation(argv1,argv2,argv3);
+  }
+}
 
-const curry = undefined;
 const compose = undefined;
 
 exports.makeConstant=makeConstant;
