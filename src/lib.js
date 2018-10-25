@@ -53,14 +53,13 @@ const curry = function(operation,argv1){
   }
 }
 
-const compose = undefined
-//  return function(number1,number2){
-//    number1 = operation1(number1);
-//    number2 = operation1(number2);
-//    numbers = operation2(number1,number2);
-//    return numbers;
-//  }
-//}
+const compose = function(operation1,operation2){ 
+  return function(number1,number2){
+    numbers = operation2(number1,number2);
+    numbers = operation1(numbers);
+    return numbers;
+  }
+}
 
 
 exports.makeConstant=makeConstant;
