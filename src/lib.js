@@ -22,7 +22,20 @@ const makeCounterFromZero = function(){
 
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
-const makeCycler = undefined;
+
+const makeCycler = function(array){
+  let newArray = array.slice(0);
+  let count = -1;
+  return function(){
+    count++;
+    if(count == newArray.length){
+      count=0;
+    }
+    return newArray[count];
+  }
+}
+
+
 const curry = undefined;
 const compose = undefined;
 
